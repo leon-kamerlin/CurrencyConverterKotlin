@@ -3,7 +3,6 @@ package com.tenseconds.currencyconverter.ui.activity.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.viewpager2.widget.ViewPager2
 import com.github.pwittchen.reactivenetwork.library.rx2.Connectivity
 import com.google.android.material.tabs.TabLayout
@@ -20,18 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private val repository: CurrencyApi.Repository by inject()
     private val connectivity: Observable<Connectivity> by inject()
-
-    private val binding: ActivityMainBinding by lazy {
-
-        val binding: ActivityMainBinding =
-            DataBindingUtil.setContentView(this, R.layout.activity_main)
-        with(binding) {
-            lifecycleOwner = this@MainActivity
-            viewModel = this@MainActivity
-        }
-
-        return@lazy binding
-    }
+    private val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     val model: MainViewModel by viewModels {
         MainViewModelFactory(repository, connectivity)

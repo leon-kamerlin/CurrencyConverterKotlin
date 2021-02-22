@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tenseconds.currencyconverter.R
 import com.tenseconds.currencyconverter.databinding.FragmentConverterBinding
 import com.tenseconds.currencyconverter.ui.activity.main.MainActivity
 
@@ -27,8 +25,7 @@ class ConverterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentConverterBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_converter, container, false)
+        val binding: FragmentConverterBinding = FragmentConverterBinding.inflate(inflater, container, false)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val adapter = ConverterAdapter(requireContext())

@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tenseconds.currencyconverter.R
-import com.tenseconds.currencyconverter.databinding.FragmentConverterBinding
 import com.tenseconds.currencyconverter.databinding.FragmentRatesBinding
 import com.tenseconds.currencyconverter.ui.activity.main.MainActivity
-import com.tenseconds.currencyconverter.ui.fragment.converter.ConverterAdapter
+
 
 class RatesFragment : Fragment() {
     companion object {
@@ -28,8 +25,7 @@ class RatesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentRatesBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_rates, container, false)
+        val binding: FragmentRatesBinding = FragmentRatesBinding.inflate(inflater, container, false)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         val adapter = RatesAdapter(requireContext())
